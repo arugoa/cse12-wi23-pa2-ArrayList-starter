@@ -193,5 +193,4 @@ public class MyArrayListHiddenTester {
         assertEquals("Checking if capacity expanded correctly", 349, normalArr.getCapacity());
     }
     
-
 }
