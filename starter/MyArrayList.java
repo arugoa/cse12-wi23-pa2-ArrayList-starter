@@ -10,7 +10,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     public MyArrayList (int  initialCapacity) {
         if (initialCapacity < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid capacity");
         }
         else {
             this.data = new Object[initialCapacity];
@@ -25,7 +25,17 @@ public class MyArrayList<E> implements MyList<E> {
         }
         else {
             this.data = Arr;
-            this.size = Arr.length;
+            this.size = 0;
+            for (int i = 0; i < Arr.length; i++) {
+                if (Arr[i] != null) {
+                    this.size += 1;
+                }
+                else {
+                    if (i == 0 || Arr[i - 1] != null) {
+                        this.size++;
+                    }
+                }
+            }
         }
     }
 
@@ -93,25 +103,29 @@ public class MyArrayList<E> implements MyList<E> {
         if (i == this.data.length - 1) {
             this.data[this.data.length - 1] = element;
         }
-        this.size++;
+        if (element != null) {
+            this.size++;
+        }
     }
 
     @SuppressWarnings("unchecked")
     public void prepend (E element) {
-        if (this.size == this.data.length) {
-            expandCapacity(this.data.length + 1);
-        }
-        
-        E prevelem = (E)this.data[0];
-        E nextelem;
-        this.data[0] = element;
-        for (int i = 1; i < this.data.length; i++) {
-            nextelem = (E)this.data[i];
-            this.data[i] = prevelem;
-            prevelem = nextelem;
-        }
+        if (element != null) {
+            if (this.size == this.data.length) {
+                expandCapacity(this.data.length + 1);
+            }
+            
+            E prevelem = (E)this.data[0];
+            E nextelem;
+            this.data[0] = element;
+            for (int i = 1; i < this.data.length; i++) {
+                nextelem = (E)this.data[i];
+                this.data[i] = prevelem;
+                prevelem = nextelem;
+            }
 
-        this.size++;
+            this.size++;
+        }
     }
 
     @SuppressWarnings("unchecked")
