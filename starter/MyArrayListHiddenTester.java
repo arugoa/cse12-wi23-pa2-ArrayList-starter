@@ -99,9 +99,13 @@ public class MyArrayListHiddenTester {
      */
     @Test
     public void testPrependNull(){
-        normalArr.prepend(null);
-        assertEquals("Checking if length changed correctly", 5, normalArr.size);
-        assertEquals("Checking for correct capacity", 5, normalArr.getCapacity());
+        try{
+            normalArr.prepend(null);
+            fail();
+        }
+        catch ( IllegalArgumentException e) {}
+        //assertEquals("Checking if length changed correctly", 5, normalArr.size);
+        //assertEquals("Checking for correct capacity", 5, normalArr.getCapacity());
     }
     
     /**
