@@ -37,6 +37,7 @@ public class MyArrayListHiddenTester {
     public void testConstructorInvalidArg(){
         try {
             invalidarray = new MyArrayList<>(-3);
+            fail();
         }
         catch (IllegalArgumentException e) {}
     }
@@ -110,6 +111,7 @@ public class MyArrayListHiddenTester {
     public void testInsertOutOfBound(){
         try {
             normalArr.insert(7, 7);
+            fail();
         }
         catch (IndexOutOfBoundsException e) {}
     }
@@ -135,6 +137,7 @@ public class MyArrayListHiddenTester {
     public void testGetOutOfBound(){
         try {
             normalArr.get(9348);
+            fail();
         }
         catch (IndexOutOfBoundsException e) {}
     }
@@ -146,6 +149,7 @@ public class MyArrayListHiddenTester {
     public void testSetOutOfBound(){
         try {
             normalArr.set(1111, 111);
+            fail();
         }
         catch (IndexOutOfBoundsException e) {}
     }
@@ -167,6 +171,7 @@ public class MyArrayListHiddenTester {
     public void testRemoveOutOfBound(){
         try {
             normalArr.remove(923929329);
+            fail();
         }
         catch (IndexOutOfBoundsException e) {}
     }
@@ -179,6 +184,7 @@ public class MyArrayListHiddenTester {
     public void testExpandCapacitySmaller(){
        try {
         normalArr.expandCapacity(3);
+        fail();
        }
        catch (IllegalArgumentException e) {}
     }
