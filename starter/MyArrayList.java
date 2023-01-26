@@ -71,7 +71,7 @@ public class MyArrayList<E> implements MyList<E> {
                     this.size += 1;
                 }
                 else {
-                    if (i == 0 || Arr[i - 1] != null) {
+                    if (i > 0 && Arr[i - 1] != null) {
                         this.size++;
                     }
                 }
@@ -177,6 +177,10 @@ public class MyArrayList<E> implements MyList<E> {
         for (i = this.data.length - 1; i >= 0; i--) {
             if (this.data[i] != null && i < this.data.length - 1) {
                 this.data[i + 1] = element;
+                break;
+            }
+            if (i == 0) {
+                this.data[i] = element;
                 break;
             }
         }
