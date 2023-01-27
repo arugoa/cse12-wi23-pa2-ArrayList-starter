@@ -198,25 +198,22 @@ public class MyArrayList<E> implements MyList<E> {
      */
     @SuppressWarnings("unchecked")
     public void prepend (E element) {
-        //Checking if valid element
-        if (element != null) {
-            //Increasing capacity if needed
-            if (this.size == this.data.length) {
-                expandCapacity(this.data.length + 1);
-            }
-            
-            //Adding the element to first index and moving the rest up by one.
-            E prevelem = (E)this.data[0];
-            E nextelem;
-            this.data[0] = element;
-            for (int i = 1; i < this.data.length; i++) {
-                nextelem = (E)this.data[i];
-                this.data[i] = prevelem;
-                prevelem = nextelem;
-            }
-
-            this.size++;
+        //Increasing capacity if needed
+        if (this.size == this.data.length) {
+            expandCapacity(this.data.length + 1);
         }
+            
+        //Adding the element to first index and moving the rest up by one.
+        E prevelem = (E)this.data[0];
+        E nextelem;
+        this.data[0] = element;
+        for (int i = 1; i < this.data.length; i++) {
+            nextelem = (E)this.data[i];
+            this.data[i] = prevelem;
+            prevelem = nextelem;
+        }
+
+        this.size++;
     }
 
     /**

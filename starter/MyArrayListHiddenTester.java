@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.*;
 
 public class MyArrayListHiddenTester {
@@ -99,13 +101,10 @@ public class MyArrayListHiddenTester {
      */
     @Test
     public void testPrependNull(){
-        try{
-            normalArr.prepend(null);
-            fail();
-        }
-        catch ( IllegalArgumentException e) {}
-        //assertEquals("Checking if length changed correctly", 5, normalArr.size);
-        //assertEquals("Checking for correct capacity", 5, normalArr.getCapacity());
+        normalArr.prepend(null);
+        Integer[] expectedarr = {null, 34, 5, 567, 8, 89, null, null};
+        assertEquals("Checking if length changed correctly", 6, normalArr.size);
+        assertArrayEquals(expectedarr, normalArr.data);
     }
     
     /**
