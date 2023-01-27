@@ -217,9 +217,6 @@ public class MyArrayList<E> implements MyList<E> {
 
             this.size++;
         }
-        else {
-            throw new IllegalArgumentException();
-        }
     }
 
     /**

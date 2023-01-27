@@ -12,7 +12,7 @@ public class MyArrayListHiddenTester {
     Integer[] nullToAppend = {34, 5, 567, 8, 89};
     Integer[] randomIntegers = {3, 1, null, 5, null, null, null};
 
-    private MyArrayList nullarraylist, invalidarray, validArrayList, normalArr, nullArrayAppend;
+    private MyArrayList nullarraylist, validArrayList, invalidarray, normalArr, nullArrayAppend;
 
 
     // Do not change the method signatures!
